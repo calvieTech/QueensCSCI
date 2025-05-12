@@ -1,0 +1,72 @@
+
+public class DLinkedList<E>{
+    private static class DNode<E>{
+        private E element;
+
+        private DNode<E> prev;
+        private DNode<E> next;
+
+        public DNode() {
+            prev = null;
+            next = null;
+        }
+
+        public DNode(E e){
+            this(e, null, null);
+        }
+
+        public DNode(E e, DNode<E> p, DNode<E> n){
+            element = e;
+            prev = p;
+            next = n;
+        }
+
+        public E getE(){
+            return element;
+        }
+    }
+
+    private DNode<E> head;
+    private DNode<E> tail;
+    private int size;
+
+    public DLinkedList(){
+        head = new DNode<E>();
+        head.prev = null;
+        tail = new DNode<E>();
+        tail.next = null;
+
+        tail.prev = head;
+        head.next = tail;
+        size = 0;
+    }
+
+    public static void main(String argc[]){
+        DLinkedList<String> ll = new DLinkedList<String>();
+        ll.addFirst("Three");
+        ll.addFirst("Two");
+        ll.addFirst("One");
+        ll.addFirst("Zero");
+        ll.print();
+    }
+
+    public void addFirst(E e){
+        size++;
+
+        DNode<E> curr = new DNode<E>(e);
+        curr.next = head.next;
+        head.next.prev = curr;
+        head.next = curr;
+        curr.prev = head;
+
+    }
+
+    public void print(){
+        DNode<E> temp = head.next;
+        while (temp != tail){
+            System.out.print(temp.getE() + ", ");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+}
