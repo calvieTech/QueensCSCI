@@ -1,0 +1,1 @@
+begin ~ ~ ~ while( integer I <= 50 ) { integer X /= Y + abc123 * 56 }  ~  X := abe * f + x - ((e -c)/4) + 1234567890105 ; while(x <= 10) x := x * x ; \n; Y := acbdefghijklmnopqrstuv + f; end
